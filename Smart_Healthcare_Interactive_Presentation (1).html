@@ -1,0 +1,175 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Smart Healthcare - Priyansh</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #002f4b, #dc4225);
+      color: #fff;
+      overflow-x: hidden;
+    }
+    .slide {
+      width: 960px;
+      max-width: 90%;
+      margin: 60px auto;
+      background: linear-gradient(135deg, #1a2a6c, #b21f1f);
+      border-radius: 15px;
+      padding: 50px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+      transition: all 0.5s ease;
+      display: none;
+    }
+    .slide.active {
+      display: block;
+    }
+    h2 {
+      color: #ffffff;
+      text-shadow: 0 0 8px #ff4081;
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: 1.2em;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+    .nav-buttons {
+      position: fixed;
+      bottom: 30px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      z-index: 10;
+    }
+    button {
+      background: linear-gradient(to right, #00c6ff, #0072ff);
+      border: none;
+      padding: 14px 30px;
+      font-size: 1em;
+      font-weight: bold;
+      border-radius: 10px;
+      color: black;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    button:hover {
+      background: linear-gradient(to right, #ff416c, #ff4b2b);
+      color: white;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="slide active">
+    <h2>Smart Healthcare Monitoring System</h2>
+    <p>Using IoT and Blynk</p>
+    <p>By Priyansh | Grade 9 | TPIS</p>
+  </div>
+
+  <div class="slide">
+    <h2>🌍 Problem Statement</h2>
+    <p>Real-time health monitoring is missing in rural areas.</p>
+    <p>Manual methods are slow, risky, and outdated.</p>
+    <p>This system solves the problem using smart IoT tech.</p>
+  </div>
+
+  <div class="slide">
+    <h2>🎯 Objective</h2>
+    <p>Track heart rate, temperature, and SpO2 with sensors.</p>
+    <p>Send live data to mobile using Blynk cloud platform.</p>
+    <p>Alert users instantly if values are abnormal.</p>
+  </div>
+
+  <div class="slide">
+    <h2>🔧 Hardware Components</h2>
+    <p>• NodeMCU / ESP8266 microcontroller</p>
+    <p>• Pulse Sensor / MAX30100</p>
+    <p>• LM35 or DHT11 (Temperature)</p>
+    <p>• Breadboard, jumper wires, power source</p>
+  </div>
+
+  <div class="slide">
+    <h2>💻 Software Tools</h2>
+    <p>• Arduino IDE (C++)</p>
+    <p>• Blynk Cloud Console + Blynk Mobile App</p>
+    <p>• (Optional) Python for AI integration</p>
+  </div>
+
+  <div class="slide">
+    <h2>⚙️ Working Principle</h2>
+    <p>Sensors → NodeMCU → WiFi → Blynk Cloud</p>
+    <p>Real-time vitals are shown on mobile app</p>
+    <p>Alerts can be sent for critical health events</p>
+  </div>
+
+  <div class="slide">
+    <h2>💸 Cost Breakdown</h2>
+    <p>• NodeMCU – ₹300</p>
+    <p>• Pulse Sensor – ₹150</p>
+    <p>• Temp Sensor – ₹100</p>
+    <p>• Wires + Breadboard – ₹100</p>
+    <p>• Power + Misc – ₹150</p>
+    <p><strong>Total ≈ ₹800 – ₹900</strong></p>
+  </div>
+
+  <div class="slide">
+    <h2>🌟 Advantages</h2>
+    <p>• Low cost, portable, and scalable</p>
+    <p>• Real-time health data access anywhere</p>
+    <p>• Great for rural healthcare and emergencies</p>
+  </div>
+
+  <div class="slide">
+    <h2>🔮 Future Scope</h2>
+    <p>• Add ECG & Blood Pressure monitoring</p>
+    <p>• Integrate Machine Learning for predictions</p>
+    <p>• GPS location + cloud data storage</p>
+  </div>
+
+  <div class="slide">
+    <h2>✅ Conclusion</h2>
+    <p>Tech that saves lives is the real flex 💪</p>
+    <p>IoT + Healthcare = Next-gen medical support</p>
+    <p>Thank you for watching!</p>
+  </div>
+
+  <div class="nav-buttons">
+    <button onclick="prevSlide()">⏮ Previous</button>
+    <button onclick="nextSlide()">Next ⏭</button>
+  </div>
+
+  <script>
+    let current = 0;
+    const slides = document.querySelectorAll('.slide');
+
+    function showSlide(index) {
+      slides.forEach((s, i) => {
+        s.classList.remove('active');
+        if (i === index) s.classList.add('active');
+      });
+    }
+
+    function nextSlide() {
+      current = (current + 1) % slides.length;
+      showSlide(current);
+    }
+
+    function prevSlide() {
+      current = (current - 1 + slides.length) % slides.length;
+      showSlide(current);
+    }
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowRight") nextSlide();
+      if (e.key === "ArrowLeft") prevSlide();
+    });
+  </script>
+
+</body>
+</html>
